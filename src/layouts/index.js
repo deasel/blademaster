@@ -1,14 +1,12 @@
 import withRouter from 'umi/withRouter'
-import Toolbar from '../components/Toolbar'
-import styles from './index.less'
+import System from './system'
 
 export default withRouter((props) => {
   return (
-    <div className={styles.app}>
-      <Toolbar />
-      <div className={styles.content}>
+    <div style={{height: '100%'}}>
+      <System>
         { props.children }
-      </div>
+      </System>
     </div>
   )
 })

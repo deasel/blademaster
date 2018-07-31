@@ -1,5 +1,2 @@
-import localStorage from './localStorage'
-
-export default{
-  localStorage,
-}
+export localstorage from './localstorage'
+export model from './model' 

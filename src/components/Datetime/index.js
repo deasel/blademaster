@@ -3,14 +3,14 @@ import { Menu, Dropdown} from 'antd'
 import dayjs from 'dayjs'
 import 'dayjs/locale/zh-cn'
 import styles from './index.less'
-
+import {localstorage} from '../../utils'
 
 export default class Datetime extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      selected: 0,
+      selected: Number(localstorage.get('Datetime')) || 0,
       methods: [{
         text: '时间',
         format: 'HH:mm:ss',
@@ -33,6 +33,7 @@ export default class Datetime extends React.Component {
   }
 
   onMenuClick({key}) {
+    localstorage.set('Datetime', key)
     this.setState(prevState => ({
       selected: key,
     }))

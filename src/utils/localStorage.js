@@ -10,7 +10,7 @@ export default {
   get(key) {
     if(!key) return null
 
-    let target = localStorage.getItem(key)
+    let target = JSON.parse(localStorage.getItem(key) || '{}')
     if(_.isObject(target) && _.isNumber(target.timeout)){
       let now = new Date().getTime()
 
@@ -26,22 +26,20 @@ export default {
   set(key, value, timeout) {
     if(!key) return
 
-    if(timeout !== undefined){
-      if(_.isString(timeout)){
-        timeout = new Date(timeout)
-        timeout = _.isDate(timeout) ? timeout.getTime() : -1
-      }else if(!_.isNumber(timeout)){
-        timeout = -1
-      }
+    if(_.isString(timeout)){
+      timeout = new Date(timeout)
+      timeout = _.isDate(timeout) ? timeout.getTime() : -1
+    }else if(!_.isNumber(timeout)){
+      timeout = -1
     }
     
     if(value !== undefined){
       let target = {
-        val: value,
+        value: value,
         timeout: timeout,
       }
 
-      localStorage.setItem(key, target)
+      localStorage.setItem(key, JSON.stringify(target))
     }
   },
 
