@@ -1,12 +1,13 @@
 import withRouter from 'umi/withRouter'
-import System from './system'
+import App from './app'
+import '../themes/index.less'
 
 export default withRouter((props) => {
   return (
     <div style={{height: '100%'}}>
-      <System>
+      <App>
         { props.children }
-      </System>
+      </App>
     </div>
   )
 })

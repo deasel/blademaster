@@ -34,9 +34,9 @@ export default class Datetime extends React.Component {
 
   onMenuClick({key}) {
     localstorage.set('Datetime', key)
-    this.setState(prevState => ({
+    this.setState({
       selected: key,
-    }))
+    })
   }
 
   componentDidMount() {

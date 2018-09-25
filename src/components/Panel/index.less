@@ -1,0 +1,33 @@
+@import '../../themes/vars.less';
+
+.window{
+
+  :global{
+    .ant-modal-body{
+      padding: 0;
+    }
+  }
+
+  .title{
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    justify-content:space-between;
+    padding: 3px 10px;
+    border-bottom: 1px solid @borderColor;
+    background-color: #E4E7ED;
+    border-top-left-radius: 5px; 
+    border-top-right-radius: 5px; 
+
+    button{
+      display: inline-block;
+      height:12px;
+      width:12px;
+      margin:0 3px;
+    } 
+    
+    .close{background-color: @red}
+    .mini{background-color: @yellow}
+    .max{background-color: @green}
+  }
+
+}
